@@ -22,7 +22,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull endtermfinal:latest
+        run: docker pull aizharykov/endtermfinal:latest
       - name: Delete old container
         run: docker rm -f endtermfinal-container
       - name: Run docker container
