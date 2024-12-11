@@ -13,7 +13,7 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} 
       - name: Build docker image
-        run: docker build -t endtermfinal .
+        run: docker build -t endtermfinal:latest .
       - name: Publish image to docker hub
         run: docker push aizharykov/endtermfinal:latest
         
