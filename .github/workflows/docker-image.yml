@@ -13,17 +13,17 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} 
       - name: Build docker image
-        run: docker build -t aizharykov/endtermfinal:latest .
+        run: docker build -t endtermfinal .
       - name: Publish image to docker hub
-        run: docker push aizharykov/endtermfinal:latest
+        run: docker push aizharykov/endtermfinal
         
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull aizharykov/endtermfinal:latest
+        run: docker pull endtermfinal:latest
       - name: Delete old container
         run: docker rm -f endtermfinal-container
       - name: Run docker container
-        run: docker run -d -p 5000:5000 --name endtermfinal-container aizharykov/endtermfinal:latest
+        run: docker run -d -p 5000:5000 aizharykov/endtermfinal:latest
