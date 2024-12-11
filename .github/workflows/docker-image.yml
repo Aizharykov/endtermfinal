@@ -22,8 +22,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull --disable-content-trust localhost:5000/aizharykov/endtermfinal:latest
+        run: sudo docker pull aizharykov/endtermfinal:latest
       - name: Delete old container
-        run: docker rm -f endtermfinal
+        run: sudo docker rm -f endtermfinal
       - name: Run docker container
-        run: docker run -d -p 5000:5000 aizharykov/endtermfinal:latest
+        run: sudo docker run -d -p 5000:5000 aizharykov/endtermfinal:latest
