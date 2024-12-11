@@ -15,7 +15,7 @@ jobs:
       - name: Build docker image
         run: docker build -t endtermfinal .
       - name: Publish image to docker hub
-        run: docker push aizharykov/endtermfinal
+        run: docker push aizharykov/endtermfinal:latest
         
   deploy:
     needs: build
